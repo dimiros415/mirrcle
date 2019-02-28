@@ -1,0 +1,12 @@
+<?php
+require_once("../vendor/autoload.php");
+use Viber\Client;
+$apiKey = '1111111111111111-2222222222222222-3333333333333333'; // <- PLACE-YOU-API-KEY-HERE
+$webhookUrl = 'https://viber.hcbogdan.com/bot.php'; // <- PLACE-YOU-HTTPS-URL
+try {
+    $client = new Client([ 'token' => $apiKey ]);
+    $result = $client->setWebhook($webhookUrl);
+    echo "Success!\n";
+} catch (Exception $e) {
+    echo "Error: ". $e->getError() ."\n";
+}
